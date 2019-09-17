@@ -65,7 +65,7 @@ class VisitsMap extends Component {
                         }}
                     >
                         <ZoomableGroup center={this.state.center} zoom={this.state.zoom}>
-                            <Geographies geography="/static/world.json">
+                            <Geographies geography="./static/world.json">
                                 {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
                                     <Geography
                                         key={i}
