@@ -74,7 +74,7 @@ const VisitsChart = (props) => {
     return (
         <>
             <h2>
-                {'History of ' + data.length + ' visits'}
+                {'History of ' + props.data.length + ' visits'}
             </h2>
             <Line data={chart} options={options}/>
         </>
