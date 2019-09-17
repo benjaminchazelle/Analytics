@@ -18,6 +18,9 @@ const VisitsLogs = (props) => {
     const useStyles = makeStyles(() => ({
         icons : {
             minWidth: "50px"
+        },
+        duration : {
+            minWidth: "100px"
         }
     }));
 
@@ -26,6 +29,7 @@ const VisitsLogs = (props) => {
     return (
         <>
             <h2>Logs</h2>
+            <p>As this page is publicly accessible, IP addresses are partially hidden.</p>
 
             <Table>
                 <TableHead>
@@ -51,7 +55,9 @@ const VisitsLogs = (props) => {
                             </TableCell>
                             <TableCell>{visit.ip}</TableCell>
                             <TableCell>{format(new Date(parseInt(visit.start)), "EEE d MMM yyyy HH:mm:ss")}</TableCell>
-                            <TableCell>{formatDistanceStrict(new Date(parseInt(visit.start)), new Date(parseInt(visit.projects.slice(-1)[0].time)))}</TableCell>
+                            <TableCell className={classes.duration}>
+                                {formatDistanceStrict(new Date(parseInt(visit.start)), new Date(parseInt(visit.projects.slice(-1)[0].time)))}
+                            </TableCell>
                             <TableCell>{visit.lang}</TableCell>
                             <TableCell>{visit.agent.platform}</TableCell>
                             <TableCell>{visit.agent.browser}</TableCell>

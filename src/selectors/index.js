@@ -28,7 +28,7 @@ export const getVisibleVisitData = createSelector(
         }
 
         if (!visitFilter.origins.owner) {
-            visibleVisitData = visibleVisitData.filter(visit => visit.ip !== "82.242.194.92")
+            visibleVisitData = visibleVisitData.filter(visit => visit.ip !== "82.242.194.92" && visit.ip !== "82.###.###.92")
         }
 
         visibleVisitData = visibleVisitData.filter(visit => isBefore(new Date(parseInt(visit.start)), visitFilter.period.to));

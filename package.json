@@ -1,6 +1,7 @@
 {
   "name": "analytics",
-  "version": "0.1.0",
+  "version": "1.0",
+  "homepage" : "https://www.chazelle.pro/analytics",
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^1.3.11",

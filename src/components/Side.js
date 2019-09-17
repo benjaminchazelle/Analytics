@@ -18,7 +18,8 @@ import {makeStyles, useTheme} from '@material-ui/core/styles';
 const Side = (props) => {
 
     Side.propTypes = {
-        open: PropTypes.bool.isRequired
+        open: PropTypes.bool.isRequired,
+        onToggle: PropTypes.func.isRequired
     };
 
     const useStyles = makeStyles(theme => ({
@@ -41,7 +42,7 @@ const Side = (props) => {
     const theme = useTheme();
 
     return (
-        <Drawer open={props.open}>
+        <Drawer open={props.open} onClose={props.onToggle}>
             <div className={classes.drawerHeader}>
                 <b>Analytics on www.chazelle.pro</b>
                 <IconButtonDrawerToggler>
