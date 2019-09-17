@@ -33,7 +33,7 @@ const SideCheckboxItem = (props) => {
                 {props.label}
             </div>
             <div>
-                <Checkbox checked={props.checked} value=""/>
+                <Checkbox checked={props.checked} color="primary"/>
             </div>
         </ListItem>
     )
