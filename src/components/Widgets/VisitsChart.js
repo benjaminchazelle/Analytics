@@ -7,21 +7,19 @@ const VisitsChart = (props) => {
 
     const counter = {};
 
-    for (let visit of props.data) {
+    props.data.forEach(visit => {
         let date = parseInt(visit.start);
         date -= date % (60 * 60 * 24 * 1000);
         counter[date] = (date in counter) ? counter[date] + 1 : 1;
-    }
+    });
 
     const data = [];
-    for (const date in counter) {
-        if (counter.hasOwnProperty(date)) {
-            data.push({
-                x: new Date(parseInt(date)),
-                y: counter[date],
-            });
-        }
-    }
+    Object.entries(counter).forEach(([date, count]) => {
+        data.push({
+            x: new Date(parseInt(date)),
+            y: count,
+        });
+    });
 
     const chart = {
         datasets: [

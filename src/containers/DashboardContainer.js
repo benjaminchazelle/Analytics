@@ -68,7 +68,7 @@ const mapStateToProps = state => ({
 DashboardContainer.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     loading: PropTypes.bool.isRequired,
-    error: PropTypes.bool.isRequired,
+    error: PropTypes.object,
     dispatch: PropTypes.func,
 };
 

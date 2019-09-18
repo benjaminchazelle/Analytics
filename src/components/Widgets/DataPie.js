@@ -8,18 +8,18 @@ const DataPie = (props) => {
 
 
     let counter = {};
-    for (const visit of props.data) {
+    props.data.forEach(visit => {
         let criteria = props.filter(visit);
         criteria = "formatter" in props ? props.formatter(criteria) : criteria;
         counter[criteria] = (criteria in counter) ? counter[criteria] + 1 : 1;
-    }
+    });
 
     let data = [];
     let labels = [];
-    for (let [criteria, count] of Object.entries(counter)) {
+    Object.entries(counter).forEach(([criteria, count]) => {
         labels.push(criteria);
         data.push(count);
-    }
+    });
 
     const chart = {
         labels: labels,

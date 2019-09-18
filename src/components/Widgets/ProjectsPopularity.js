@@ -6,23 +6,22 @@ import blue from "@material-ui/core/colors/blue";
 const ProjectPopularity = (props) => {
 
     let counter = {};
-    for (const visit of props.data) {
+    props.data.forEach(visit => {
         if (visit.projects.length === 1) {
-            continue;
+            return;
         }
 
-        for (const project of visit.projects) {
+        visit.projects.forEach(project => {
             counter[project.id] = (project.id in counter) ? counter[project.id] + 1 : 1;
-        }
-
-    }
+        })
+    });
 
     let data = [];
     let labels = [];
-    for (let [projectId, count] of Object.entries(counter)) {
+    Object.entries(counter).forEach(([projectId, count]) => {
         labels.push(projectId);
         data.push(count);
-    }
+    });
 
     const chart = {
         labels: labels,

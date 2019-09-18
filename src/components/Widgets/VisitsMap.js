@@ -46,12 +46,12 @@ class VisitsMap extends Component {
                 <h2>World map</h2>
 
                 {
-                    Object.keys(mapMarkerColors).map((type) => {
+                    Object.keys(mapMarkerColors).map((type, i) => {
                         const style = {
                             color: mapMarkerColors[type],
                             margin: "0 7px"
                         };
-                        return <><span style={style}>■</span><b>{type} visits</b></>
+                        return <div key={i}><span style={style}>■</span><b>{type} visits</b></div>
                     })
                 }
                 <div style={wrapperStyles}>
